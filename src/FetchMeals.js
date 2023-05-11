@@ -1,14 +1,14 @@
 import axios from 'axios';
 
 const getAllMeals = (setMeal) => {
-	axios.get('http://localhost:4000').then(({ data }) => {
+	axios.get('https://backend-meal-planner.onrender.com').then(({ data }) => {
 		console.log(data);
 		setMeal(data);
 	});
 };
 
 const addMeal = (title, setTitle, setMeal) => {
-    axios.post('http://localhost:4000/saveMeals', {title})
+    axios.post('https://backend-meal-planner.onrender.com/saveMeals', {title})
     .then((data) => {
         console.log(data);
         setTitle('');
@@ -17,7 +17,7 @@ const addMeal = (title, setTitle, setMeal) => {
 }
 
 const editMeal = (mealId, title, setMeal, setTitle, setEditing) => {
-    axios.post('http://localhost:4000/editMeal', {title, _id: mealId})
+    axios.post('https://backend-meal-planner.onrender.com/editMeal', {title, _id: mealId})
     .then((data) => {
         console.log(data);
         setTitle('');
@@ -27,7 +27,7 @@ const editMeal = (mealId, title, setMeal, setTitle, setEditing) => {
 }
 
 const deleteMeal = (_id, setMeal) => {
-    axios.post('http://localhost:4000/deleteMeal', {_id})
+    axios.post('https://backend-meal-planner.onrender.com/deleteMeal', {_id})
     .then((data) => {
         console.log(data);
         getAllMeals(setMeal);
